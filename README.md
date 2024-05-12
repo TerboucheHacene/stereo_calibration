@@ -4,6 +4,19 @@ This is a simple stereo camera calibration tool that uses OpenCV to calibrate a 
 
 ![Stereo Camera Calibration](assets/stereo.png)
 
+## Steps For Stereo Calibration and Rectification
+
+Camera calibration is the process of determining the intrinsic and extrinsic parameters of a stereo camera. 
+This process is essential to eliminate the lens distortion. Stereo rectification is the process of transforming
+the images captured by the stereo camera so that the epipolar lines are parallel to the image plane. This process
+is essential for stereo matching algorithms to work correctly. The steps for stereo calibration and rectification are as follows:
+
+* Calibrate individual cameras using the standard OpenCV calibration method 
+* Determine the transformation between the two cameras used in the stereo camera setup.
+* Using the parameters obtained in the previous steps and the stereoCalibrate method, we determine the transformations applied to both the images for stereo rectification.
+* Finally, a mapping required to find the undistorted and rectified stereo image pair is obtained using the initUndistortRectifyMap method.
+* This mapping is applied to the original images to get a rectified undistorted stereo image pair.
+
 ## Installation
 
 To install the tool, it is recommended to use a virtual environment. You can create a virtual environment using the following command:
